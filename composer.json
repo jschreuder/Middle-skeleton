@@ -11,12 +11,6 @@
             "Middle\\Skeleton\\": "src"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/jschreuder/Middle"
-        }
-    ],
     "require": {
         "jschreuder/middle": "^0.6",
         "zendframework/zend-diactoros": "^1.3",
