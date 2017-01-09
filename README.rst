@@ -61,6 +61,8 @@ It should show a JSON encoded *Hello World* message. The controller for this
 is located in ``src/Controller/ExampleController.php``, the routing is set up
 in ``src/GeneralRoutingProvider.php``.
 
+Run ``bin/phpspec run`` to have phpspec run the specs on the example classes.
+
 ----------
 The wiring
 ----------
