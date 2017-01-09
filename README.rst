@@ -25,7 +25,7 @@ On the commandline use composer:
 
 .. code-block::
 
-    $ composer create-project jschreuder:middle-skeleton myapp
+    $ composer create-project jschreuder/middle-skeleton myapp dev-master
 
 After this you will have to make the logs directory writeable:
 
