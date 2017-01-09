@@ -1,0 +1,7 @@
+/.idea/
+/bin/
+/config/*.php
+/logs/*.log
+/vendor/
+composer.lock
+coverage.xml

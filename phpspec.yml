@@ -1,0 +1,4 @@
+suites:
+    acme_suite:
+        namespace: Middle\Skeleton
+        psr4_prefix: Middle\Skeleton
