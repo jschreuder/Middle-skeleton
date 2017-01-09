@@ -1,7 +1,13 @@
 <?php declare(strict_types = 1);
 
+/** @var  \Pimple\Container $container */
+$container = require __DIR__ . '/../app_init.php';
+
 /** @var  jschreuder\Middle\ApplicationStackInterface $app */
-$app = require __DIR__ . '/../app_init.php';
+$app = $container['app'];
+
+// Register routing
+$container['app.router']->registerRoutes(new \Middle\Skeleton\GeneralRoutingProvider($container));
 
 // Create request from globals
 $request = Zend\Diactoros\ServerRequestFactory::fromGlobals();

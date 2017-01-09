@@ -1,4 +1,6 @@
 {
+    "name": "jschreuder/middle-skeleton",
+    "description": "A Middle framework setup for a new project.",
     "license": "MIT",
     "minimum-stability": "stable",
     "config": {
@@ -22,10 +24,6 @@
         "robmorgan/phinx": "^0.6",
         "pimple/pimple": "^3.0",
         "symfony/routing": "^3.1",
-        "lcobucci/jwt": "^3.1",
-        "dflydev/fig-cookies": "^1.0",
-        "particle/validator": "^2.2",
-        "particle/filter": "^1.4",
         "symfony/console": "^3.1"
     },
     "require-dev": {

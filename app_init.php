@@ -14,12 +14,9 @@ mb_internal_encoding('UTF-8');
 $environment = require __DIR__ . '/config/env.php';
 $container = new Pimple\Container(require __DIR__ . '/config/' . $environment . '.php');
 $container['environment'] = $environment;
+$container->register(new \Middle\Skeleton\GeneralServiceProvider());
 
 // Have Monolog log all PHP errors
 Monolog\ErrorHandler::register($container['logger']);
 
-// Register services to DiC & Router
-$container->register(new \Middle\Skeleton\GeneralServiceProvider());
-$container['app.router']->registerRoutes(new \Middle\Skeleton\GeneralRoutingProvider($container));
-
-return $container['app'];
+return $container;
