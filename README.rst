@@ -2,16 +2,20 @@
 Middle Framework skeleton
 =========================
 
-A basic (though opinionated) setup for Middle framework. It is set up with the
+A basic (though opinionated) setup for `Middle
+framework<https://github.com/jschreuder/Middle>`_. It is set up with the
 following:
 
-* Zend Diactoros as HTTP Message implementation
-* Monolog for logging
-* Pimple as the dependency injection container
-* Symfony Router
-* phpspec for BDD style testing
-* Phinx for database migrations
-* Symfony console for commandline commands
+* `Zend Diactoros<https://zendframework.github.io/zend-diactoros/>`_ as HTTP
+  Message implementation
+* `Monolog<https://seldaek.github.io/monolog/>`_ for logging
+* `Pimple<http://pimple.sensiolabs.org/>`_ as the dependency injection container
+* `Symfony Router<https://symfony.com/doc/current/routing.html>`_
+* `phpspec<http://www.phpspec.net/>`_ for BDD style testing
+* `Phinx<https://phinx.org/>`_ for database migrations
+* `Symfony console<https://symfony.com/doc/current/components/console.html>`_
+  for commandline commands
+* JSON middleware to support requests with a JSON content-type body
 
 ------------
 Installation
@@ -71,3 +75,20 @@ There's a few files in which the application is wired together:
 * The ``console`` which registers the commands;
 * The DiC is configured in the ``GeneralServiceProvider`` class;
 * Routing is configured in the ``GeneralRoutingProvider`` class.
+
+----------------------------
+Included in Middle framework
+----------------------------
+
+There's a few things included in Middle framework you might want to consider
+but have not been set up yet:
+
+* **Sessions:** You can use the ``SessionMiddleware`` along with either the
+  Zend or the Jwt implementation to add session support to the application.
+  Note that both implementations have dependencies of their own.
+* **Views / templates:** You can use the ``View`` and ``Renderer`` classes
+  with `Twig<http://twig.sensiolabs.org/>`_ to generate output from powerful
+  templates. Or implement your own view layer based on the available
+  interfaces.
+* Use request validators & request filters to check HTTP requests before they
+  reach their controller.
