@@ -31,7 +31,7 @@ After this you will have to make the logs directory writeable:
 
 .. code-block::
 
-    $ chmod 0666 logs
+    $ chmod 0755 logs
 
 Next you'll setup your configuration files. Modify the database credentials in
 ``dev.php`` to your liking. You can change environment by renaming the
