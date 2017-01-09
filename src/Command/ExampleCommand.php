@@ -9,7 +9,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ExampleCommand extends Command
 {
-
     protected function configure()
     {
         $this
