@@ -19,7 +19,7 @@ use Zend\Diactoros\Response\JsonResponse;
 
 class GeneralServiceProvider implements ServiceProviderInterface
 {
-    public function register(Container $container)
+    public function register(Container $container): void
     {
         $container['app'] = function (Container $container) {
             return new ApplicationStack([

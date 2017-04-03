@@ -9,7 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ExampleCommand extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('middle:example')
@@ -17,7 +17,7 @@ class ExampleCommand extends Command
             ->addArgument('name', InputArgument::OPTIONAL, 'Your name', 'unknown');
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    public function execute(InputInterface $input, OutputInterface $output): void
     {
         $output->writeln('Hello ' . $input->getArgument('name'));
     }
