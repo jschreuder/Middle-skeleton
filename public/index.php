@@ -7,7 +7,9 @@ $container = require __DIR__ . '/../app_init.php';
 $app = $container['app'];
 
 // Register routing
-$container['app.router']->registerRoutes(new \Middle\Skeleton\GeneralRoutingProvider($container));
+(new \jschreuder\Middle\Router\RoutingProviderCollection(
+    new \Middle\Skeleton\GeneralRoutingProvider($container)
+))->registerRoutes($container['app.router']);
 
 // Create request from globals
 $request = Zend\Diactoros\ServerRequestFactory::fromGlobals();

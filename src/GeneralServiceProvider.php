@@ -22,7 +22,7 @@ class GeneralServiceProvider implements ServiceProviderInterface
     public function register(Container $container): void
     {
         $container['app'] = function (Container $container) {
-            return new ApplicationStack([
+            return new ApplicationStack(
                 new ControllerRunner(),
                 new JsonRequestParserMiddleware(),
                 new RoutingMiddleware(
@@ -33,7 +33,7 @@ class GeneralServiceProvider implements ServiceProviderInterface
                     $container['logger'],
                     $container['app.error_handlers.500']
                 )
-            ]);
+            );
         };
 
         $container['app.router'] = function () use ($container) {
