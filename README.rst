@@ -31,7 +31,7 @@ After this you will have to make the logs directory writeable:
 
 .. code-block::
 
-    $ chmod 0755 logs
+    $ chmod 0755 var/logs
 
 Next you'll setup your configuration files. Modify the database credentials in
 ``dev.php`` to your liking. You can change environment by renaming the
@@ -40,8 +40,8 @@ name.
 
 .. code-block::
 
-    $ mv config/dev.php.dist config/dev.php
-    $ mv config/env.php.dist config/env.php
+    $ mv etc/dev.php.dist etc/dev.php
+    $ mv etc/env.php.dist etc/env.php
 
 After this you should also set the correct credentials in the environment
 config file if you intend to use a database.
@@ -55,7 +55,7 @@ Test if it works
 Go to the commandline and enter ``./console middle:example MyName`` to show a
 welcome message. The command is located in ``src/Command/ExampleCommand.php``.
 
-Go to the commandline and into the ``public`` directory, enter
+Go to the commandline and into the ``web`` directory, enter
 ``php -S localhost:8080`` and go to ``http://localhost:8080`` in your browser.
 It should show a JSON encoded *Hello World* message. The controller for this
 is located in ``src/Controller/ExampleController.php``, the routing is set up
@@ -69,10 +69,10 @@ The wiring
 
 There's a few files in which the application is wired together:
 
-* The ``app_init.php`` which loads the autoloader, sets some reasonable
+* The ``etc/app_init.php`` which loads the autoloader, sets some reasonable
   environment settings, sets up Monolog, and initiates the DiC with the
   ``GeneralServiceProvider``;
-* The ``public/index.php`` which is the entry point for the web application and
+* The ``web/index.php`` which is the entry point for the web application and
   will load the routes & run the request through the application;
 * The ``console`` which registers the commands;
 * The DiC is configured in the ``GeneralServiceProvider`` class;

@@ -13,7 +13,7 @@
     },
     "require": {
         "php": ">=7.1",
-        "jschreuder/middle": "^0.8",
+        "jschreuder/middle": "^0.10",
         "zendframework/zend-diactoros": "^1.3",
         "monolog/monolog": "^1.22",
         "robmorgan/phinx": "^0.8",

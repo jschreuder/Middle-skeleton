@@ -1,7 +1,8 @@
 /.idea/
 /bin/
-/config/*.php
-/logs/*.log
+/etc/env.php
+/etc/dev.php
+/var/logs/*.log
 /vendor/
 composer.lock
 coverage.xml

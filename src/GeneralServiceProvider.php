@@ -3,19 +3,17 @@
 namespace Middle\Skeleton;
 
 use jschreuder\Middle\ApplicationStack;
-use jschreuder\Middle\Controller\CallableController;
 use jschreuder\Middle\Controller\ControllerRunner;
 use jschreuder\Middle\Router\RouterInterface;
 use jschreuder\Middle\Router\SymfonyRouter;
 use jschreuder\Middle\ServerMiddleware\ErrorHandlerMiddleware;
 use jschreuder\Middle\ServerMiddleware\JsonRequestParserMiddleware;
 use jschreuder\Middle\ServerMiddleware\RoutingMiddleware;
+use Middle\Skeleton\Controller\ErrorHandlerController;
+use Middle\Skeleton\Controller\NotFoundHandlerController;
 use Middle\Skeleton\Service\ExampleService;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Response\JsonResponse;
 
 class GeneralServiceProvider implements ServiceProviderInterface
 {
@@ -46,23 +44,13 @@ class GeneralServiceProvider implements ServiceProviderInterface
             return $router->getGenerator();
         };
 
-        $container['app.error_handlers.404'] = CallableController::factoryFromCallable(
-            function (ServerRequestInterface $request) use ($container) : ResponseInterface {
-                return new JsonResponse(
-                    [
-                        'message' => 'Not found: ' .
-                            $request->getMethod() . ' ' . $request->getUri()->getPath(),
-                    ],
-                    404
-                );
-            }
-        );
+        $container['app.error_handlers.404'] = function () {
+            return new NotFoundHandlerController();
+        };
 
-        $container['app.error_handlers.500'] = CallableController::factoryFromCallable(
-            function () use ($container) : ResponseInterface {
-                return new JsonResponse(['message' => 'System Error'], 500);
-            }
-        );
+        $container['app.error_handlers.500'] = function () use ($container) {
+            return new ErrorHandlerController($container['logger']);
+        };
 
         $container['db'] = function (Container $container) {
             return new \PDO(
