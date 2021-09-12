@@ -6,8 +6,9 @@ A basic (though opinionated) setup for `Middle
 framework <https://github.com/jschreuder/Middle>`_. It is set up with the
 following:
 
-* `Zend Diactoros <https://zendframework.github.io/zend-diactoros/>`_ as HTTP
-  Message implementation
+* `Laminas Diactoros <https://docs.laminas.dev/laminas-diactoros/>`_ as HTTP
+  Message implementation, along with `Laminas HTTP handlerrunner 
+  <https://docs.laminas.dev/laminas-httphandlerrunner/>` for emitting responses
 * `Monolog <https://seldaek.github.io/monolog/>`_ for logging
 * `Pimple <http://pimple.sensiolabs.org/>`_ as the dependency injection container
 * `Symfony Router <https://symfony.com/doc/current/routing.html>`_
@@ -86,9 +87,10 @@ Included in Middle framework
 There's a few things included in Middle framework you might want to consider
 but have not been set up yet:
 
-* **Sessions:** You can use the ``SessionMiddleware`` along with either the
-  Zend or the Jwt implementation to add session support to the application.
-  Note that both implementations have dependencies of their own.
+* **Sessions:** You can use the ``SessionMiddleware`` along with the Laminas 
+  implementation to add session support to the application. Note that you will
+  need to install the `Laminas Session 
+  <https://docs.laminas.dev/laminas-session/>` package as well.
 * **Views / templates:** You can use the ``View`` and ``Renderer`` classes
   with `Twig <http://twig.sensiolabs.org/>`_ to generate output from powerful
   templates. Or implement your own view layer based on the available
