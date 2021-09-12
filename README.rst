@@ -7,10 +7,12 @@ framework <https://github.com/jschreuder/Middle>`_. It is set up with the
 following:
 
 * `Laminas Diactoros <https://docs.laminas.dev/laminas-diactoros/>`_ as HTTP
-  Message implementation, along with `Laminas HTTP handlerrunner <https://docs.laminas.dev/laminas-httphandlerrunner/>`
-  for emitting responses
+  Message implementation, along with `Laminas HTTP handlerrunner 
+  <https://docs.laminas.dev/laminas-httphandlerrunner/>`_ for emitting 
+  responses
 * `Monolog <https://seldaek.github.io/monolog/>`_ for logging
-* `Pimple <http://pimple.sensiolabs.org/>`_ as the dependency injection container
+* `Pimple <http://pimple.sensiolabs.org/>`_ as the dependency injection 
+container
 * `Symfony Router <https://symfony.com/doc/current/routing.html>`_
 * `phpspec <http://www.phpspec.net/>`_ for BDD style testing
 * `Phinx <https://phinx.org/>`_ for database migrations
@@ -89,8 +91,8 @@ but have not been set up yet:
 
 * **Sessions:** You can use the ``SessionMiddleware`` along with the Laminas 
   implementation to add session support to the application. Note that you will
-  need to install the `Laminas Session <https://docs.laminas.dev/laminas-session/>`
-  package as well.
+  need to install the `Laminas Session 
+  <https://docs.laminas.dev/laminas-session/>`_ package as well.
 * **Views / templates:** You can use the ``View`` and ``Renderer`` classes
   with `Twig <http://twig.sensiolabs.org/>`_ to generate output from powerful
   templates. Or implement your own view layer based on the available
