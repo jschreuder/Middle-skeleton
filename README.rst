@@ -12,7 +12,7 @@ following:
   responses
 * `Monolog <https://seldaek.github.io/monolog/>`_ for logging
 * `Pimple <http://pimple.sensiolabs.org/>`_ as the dependency injection 
-container
+  container
 * `Symfony Router <https://symfony.com/doc/current/routing.html>`_
 * `phpspec <http://www.phpspec.net/>`_ for BDD style testing
 * `Phinx <https://phinx.org/>`_ for database migrations
