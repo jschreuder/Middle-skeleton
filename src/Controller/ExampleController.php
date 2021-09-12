@@ -3,10 +3,10 @@
 namespace Middle\Skeleton\Controller;
 
 use jschreuder\Middle\Controller\ControllerInterface;
+use Laminas\Diactoros\Response\JsonResponse;
 use Middle\Skeleton\Service\ExampleService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Response\JsonResponse;
 
 class ExampleController implements ControllerInterface
 {

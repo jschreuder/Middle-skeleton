@@ -3,15 +3,14 @@
 namespace Middle\Skeleton\Controller;
 
 use jschreuder\Middle\Controller\ControllerInterface;
+use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
-use Zend\Diactoros\Response\JsonResponse;
 
 class ErrorHandlerController implements ControllerInterface
 {
-    /** @var  LoggerInterface */
-    private $logger;
+    private LoggerInterface $logger;
 
     public function __construct(LoggerInterface $logger)
     {

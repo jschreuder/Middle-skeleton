@@ -6,6 +6,6 @@ $container = require __DIR__ . '/config/app_init.php';
 
 $application = new \Symfony\Component\Console\Application();
 
-$application->add(new \Middle\Skeleton\Command\ExampleCommand());
+(new \Middle\Skeleton\ConsoleCommandsProvider($container))->registerCommands($application);
 
 $application->run();

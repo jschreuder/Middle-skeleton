@@ -76,7 +76,8 @@ There's a few files in which the application is wired together:
   will load the routes & run the request through the application;
 * The ``console`` which registers the commands;
 * The DiC is configured in the ``GeneralServiceProvider`` class;
-* Routing is configured in the ``GeneralRoutingProvider`` class.
+* Routing is configured in the ``GeneralRoutingProvider`` class;
+* Console commands are configured in the ``ConsoleCommandsProvider`` class.
 
 ----------------------------
 Included in Middle framework

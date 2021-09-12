@@ -12,10 +12,10 @@ $app = $container['app'];
 ))->registerRoutes($container['app.router']);
 
 // Create request from globals
-$request = Zend\Diactoros\ServerRequestFactory::fromGlobals();
+$request = Laminas\Diactoros\ServerRequestFactory::fromGlobals();
 
 // Execute the application
 $response = $app->process($request);
 
 // Output the response
-(new Zend\Diactoros\Response\SapiEmitter())->emit($response);
+(new Laminas\HttpHandlerRunner\Emitter\SapiEmitter())->emit($response);

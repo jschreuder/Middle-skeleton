@@ -12,18 +12,18 @@
         }
     },
     "require": {
-        "php": ">=7.1",
+        "php": ">=8.0",
         "ext-PDO": "*",
-        "jschreuder/middle": "^1.0",
-        "zendframework/zend-diactoros": "^1.3",
-        "monolog/monolog": "^1.22",
-        "robmorgan/phinx": "^0.8",
-        "pimple/pimple": "^3.0",
-        "symfony/routing": "^3.2",
-        "symfony/console": "^3.2"
+        "jschreuder/middle": "dev-master#79ad8f6f823f782db853ac6cf8586fca96122d18",
+        "laminas/laminas-diactoros": "^2.6",
+        "laminas/laminas-httphandlerrunner": "^2.0",
+        "monolog/monolog": "^2.3",
+        "robmorgan/phinx": "^0.12",
+        "pimple/pimple": "^3.4",
+        "symfony/routing": "^5.3",
+        "symfony/console": "^5.3"
     },
     "require-dev": {
-        "phpspec/phpspec": "^3.2",
-        "phpspec/prophecy": "^1.7"
+        "phpspec/phpspec": "^7.1"
     }
 }

@@ -17,8 +17,9 @@ class ExampleCommand extends Command
             ->addArgument('name', InputArgument::OPTIONAL, 'Your name', 'unknown');
     }
 
-    public function execute(InputInterface $input, OutputInterface $output): void
+    public function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Hello ' . $input->getArgument('name'));
+        return 0;
     }
 }
