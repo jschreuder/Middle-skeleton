@@ -4,6 +4,7 @@ namespace Middle\Skeleton;
 
 use jschreuder\Middle\Router\RouterInterface;
 use Middle\Skeleton\Command\ExampleCommand;
+use Middle\Skeleton\Command\StartWebserverCommand;
 use Pimple\Container;
 use Symfony\Component\Console\Application;
 
@@ -19,5 +20,6 @@ class ConsoleCommandsProvider
     public function registerCommands(Application $application): void
     {
         $application->add(new ExampleCommand());
+        $application->add(new StartWebserverCommand());
     }
 }
