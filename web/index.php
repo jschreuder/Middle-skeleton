@@ -1,15 +1,15 @@
 <?php declare(strict_types = 1);
 
-/** @var  \Pimple\Container $container */
+/** @var  \Middle\Skeleton\ServiceContainer $container */
 $container = require __DIR__ . '/../config/app_init.php';
 
 /** @var  jschreuder\Middle\ApplicationStackInterface $app */
-$app = $container['app'];
+$app = $container->getApp();
 
 // Register routing
 (new \jschreuder\Middle\Router\RoutingProviderCollection(
     new \Middle\Skeleton\GeneralRoutingProvider($container)
-))->registerRoutes($container['app.router']);
+))->registerRoutes($container->GetAppRouter());
 
 // Create request from globals
 $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals();

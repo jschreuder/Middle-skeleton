@@ -11,8 +11,6 @@ following:
   <https://docs.laminas.dev/laminas-httphandlerrunner/>`_ for emitting 
   responses
 * `Monolog <https://seldaek.github.io/monolog/>`_ for logging
-* `Pimple <http://pimple.sensiolabs.org/>`_ as the dependency injection 
-  container
 * `Symfony Router <https://symfony.com/doc/current/routing.html>`_
 * `phpspec <http://www.phpspec.net/>`_ for BDD style testing
 * `Phinx <https://phinx.org/>`_ for database migrations
@@ -78,7 +76,7 @@ There's a few files in which the application is wired together:
 * The ``web/index.php`` which is the entry point for the web application and
   will load the routes & run the request through the application;
 * The ``console`` which registers the commands;
-* The DiC is configured in the ``GeneralServiceProvider`` class;
+* The DiC is configured in the ``ServiceContainer`` class;
 * Routing is configured in the ``GeneralRoutingProvider`` class;
 * Console commands are configured in the ``ConsoleCommandsProvider`` class.
 

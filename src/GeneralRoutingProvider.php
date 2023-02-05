@@ -5,13 +5,12 @@ namespace Middle\Skeleton;
 use jschreuder\Middle\Router\RouterInterface;
 use jschreuder\Middle\Router\RoutingProviderInterface;
 use Middle\Skeleton\Controller\ExampleController;
-use Pimple\Container;
 
 class GeneralRoutingProvider implements RoutingProviderInterface
 {
-    private Container $container;
+    private ServiceContainer $container;
 
-    public function __construct(Container $container)
+    public function __construct(ServiceContainer $container)
     {
         $this->container = $container;
     }
@@ -19,7 +18,7 @@ class GeneralRoutingProvider implements RoutingProviderInterface
     public function registerRoutes(RouterInterface $router): void
     {
         $router->get('home', '/', function () {
-            return new ExampleController($this->container['service.example']);
+            return new ExampleController($this->container->getExample());
         });
     }
 }

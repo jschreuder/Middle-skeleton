@@ -1,5 +1,7 @@
 <?php declare(strict_types = 1);
 
+use jschreuder\MiddleDi\DiCompiler;
+
 // Load autoloader & 3rd party libraries
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -12,11 +14,13 @@ mb_internal_encoding('UTF-8');
 
 // Setup DiC with Environment config
 $environment = require __DIR__ . '/env.php';
-$container = new Pimple\Container(require __DIR__ . '/' . $environment . '.php');
-$container['environment'] = $environment;
-$container->register(new \Middle\Skeleton\GeneralServiceProvider());
+$config = require __DIR__ . '/' . $environment . '.php';
+$config['environment'] = $environment;
+
+/** @var  \Middle\Skeleton\ServiceContainer $container */
+$container = (new DiCompiler(\Middle\Skeleton\ServiceContainer::class))->compile()->newInstance($config);
 
 // Have Monolog log all PHP errors
-Monolog\ErrorHandler::register($container['logger']);
+Monolog\ErrorHandler::register($container->getLogger());
 
 return $container;

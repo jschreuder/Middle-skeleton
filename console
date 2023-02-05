@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php declare(strict_types = 1);
 
-/** @var  \Pimple\Container $container */
+/** @var  \Middle\Skeleton\ServiceContainer $container */
 $container = require __DIR__ . '/config/app_init.php';
 
 $application = new \Symfony\Component\Console\Application();

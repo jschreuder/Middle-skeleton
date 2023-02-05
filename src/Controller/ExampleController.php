@@ -10,12 +10,10 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class ExampleController implements ControllerInterface
 {
-    /** @var  ExampleService */
-    private $exampleService;
-
-    public function __construct(ExampleService $exampleService)
+    public function __construct(
+        private ExampleService $exampleService
+    )
     {
-        $this->exampleService = $exampleService;
     }
 
     public function execute(ServerRequestInterface $request): ResponseInterface

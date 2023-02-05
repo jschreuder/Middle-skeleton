@@ -1,16 +1,10 @@
 <?php
 
 return [
-    'logger' => function () {
-        $logger = new \Monolog\Logger('middle-skeleton');
-        $logger->pushHandler((new \Monolog\Handler\StreamHandler(
-            __DIR__ . '/../var/logs/' . (php_sapi_name() === 'cli' ? 'cli' : 'web') . '-' . date('Ymd') . '.log',
-            \Monolog\Logger::NOTICE
-        ))->setFormatter(new \Monolog\Formatter\LineFormatter()));
-        return $logger;
-    },
-
     'site.url' => 'http://localhost',
+
+    'logger.name' => 'middle-skeleton',
+    'logger.path' => __DIR__ . '/../var/logs/' . (php_sapi_name() === 'cli' ? 'cli' : 'web') . '-' . date('Ymd') . '.log',
 
     'db.dsn'    => 'mysql:host=localhost;charset=utf8',
     'db.dbname' => 'db_dev',

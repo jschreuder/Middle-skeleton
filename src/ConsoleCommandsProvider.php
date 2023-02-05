@@ -2,17 +2,15 @@
 
 namespace Middle\Skeleton;
 
-use jschreuder\Middle\Router\RouterInterface;
 use Middle\Skeleton\Command\ExampleCommand;
 use Middle\Skeleton\Command\StartWebserverCommand;
-use Pimple\Container;
 use Symfony\Component\Console\Application;
 
 class ConsoleCommandsProvider
 {
-    private Container $container;
+    private ServiceContainer $container;
 
-    public function __construct(Container $container)
+    public function __construct(ServiceContainer $container)
     {
         $this->container = $container;
     }
