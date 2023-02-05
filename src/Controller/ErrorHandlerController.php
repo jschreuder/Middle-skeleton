@@ -22,10 +22,12 @@ class ErrorHandlerController implements ControllerInterface
         /** @var  \Throwable $exception */
         $exception = $request->getAttribute('error');
         $code = $this->getCode($exception);
+        $message = $this->getMessage($code);
 
+        $this->logger->log($code, $message);
         return new JsonResponse(
             [
-                'message' => $this->getMessage($code),
+                'message' => $message,
             ],
             $code
         );

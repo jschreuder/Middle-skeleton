@@ -8,16 +8,15 @@ use Symfony\Component\Console\Application;
 
 class ConsoleCommandsProvider
 {
-    private ServiceContainer $container;
-
-    public function __construct(ServiceContainer $container)
+    public function __construct(
+        private ServiceContainer $container
+    )
     {
-        $this->container = $container;
     }
 
     public function registerCommands(Application $application): void
     {
-        $application->add(new ExampleCommand());
+        $application->add(new ExampleCommand($this->container->getExample()));
         $application->add(new StartWebserverCommand());
     }
 }
