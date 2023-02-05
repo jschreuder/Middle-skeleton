@@ -14,7 +14,7 @@
     "require": {
         "php": ">=8.1",
         "ext-PDO": "*",
-        "jschreuder/middle": "2.0-RC2",
+        "jschreuder/middle": "^2.0",
         "jschreuder/middle-di": "dev-master",
         "laminas/laminas-diactoros": "^2.9",
         "laminas/laminas-httphandlerrunner": "^2.1",
