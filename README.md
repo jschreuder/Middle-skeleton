@@ -5,7 +5,7 @@ A basic (though opinionated) setup for [Middle framework](https://github.com/jsc
 * [Laminas Diactoros](https://docs.laminas.dev/laminas-diactoros/) as HTTP Message implementation, along with [Laminas HTTP handlerrunner](https://docs.laminas.dev/laminas-httphandlerrunner/) for emitting responses
 * [Monolog](https://seldaek.github.io/monolog/) for logging
 * [Symfony Router](https://symfony.com/doc/current/routing.html)
-* [phpspec](http://www.phpspec.net/) for BDD style testing
+* [Pest PHP](https://pestphp.com/) for elegant testing
 * [Phinx](https://phinx.org/) for database migrations
 * [Symfony console](https://symfony.com/doc/current/components/console.html) for commandline commands
 * JSON middleware to support requests with a JSON content-type body
@@ -41,7 +41,7 @@ Go to the commandline and enter `./console middle:example MyName` to show a welc
 
 Go to the commandline and into the `web` directory, enter `php -S localhost:8080` and go to `http://localhost:8080` in your browser. It should show a JSON encoded *Hello World* message. The controller for this is located in `src/Controller/ExampleController.php`, the routing is set up in `src/GeneralRoutingProvider.php`.
 
-Run `bin/phpspec run` to have phpspec run the specs on the example classes.
+Run `./vendor/bin/pest` to run the test suite.
 
 ## The wiring
 

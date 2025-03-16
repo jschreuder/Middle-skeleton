@@ -1,4 +1,0 @@
-suites:
-    middle_skeleton:
-        namespace: Middle\Skeleton
-        psr4_prefix: Middle\Skeleton
