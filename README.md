@@ -141,7 +141,7 @@ This approach gives you:
 - **Future-Proof Evolution**: Library updates only require adapter changes, not application rewrites
 - **Focused Testing**: Mock exactly what your application needs, not complex library interfaces
 
-You get battle-tested components (Symfony Security, Doctrine ORM, Laminas Session) with complete architectural control.
+You get battle-tested components (for example the included Symfony Routing and Laminas Diactoros) with complete architectural control.
 
 ## Extending the Application
 
