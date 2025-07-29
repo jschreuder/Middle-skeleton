@@ -98,6 +98,51 @@ web/             # Web server document root
 * **`src/ServiceContainer.php`**: Dependency injection container with explicit service definitions
 * **`src/GeneralRoutingProvider.php`**: Route definitions using Middle's routing abstraction
 
+## Design Philosophy: Composition Over Framework Lock-in
+
+Middle isn't designed to replace other frameworks - it's designed to let you **compose proven components on your terms**. Rather than accepting one framework's architectural decisions, you create your own interfaces and adapt mature libraries to fit your domain.
+
+```php
+// Your domain interface - exactly what your application needs
+interface UserValidatorInterface 
+{
+    public function validateCreateUser(array $data): ValidationResult;
+    public function validateUpdateUser(int $userId, array $data): ValidationResult;
+}
+
+// Adapter that wraps Symfony's complexity behind your interface
+class SymfonyUserValidator implements UserValidatorInterface 
+{
+    public function __construct(private ValidatorInterface $symfonyValidator) {}
+    
+    public function validateCreateUser(array $data): ValidationResult 
+    {
+        // Transform your domain needs into Symfony validator calls
+        $constraints = new Assert\Collection([
+            'email' => new Assert\Email(),
+            'name' => new Assert\NotBlank(),
+        ]);
+        
+        $violations = $this->symfonyValidator->validate($data, $constraints);
+        return ValidationResult::fromSymfonyViolations($violations);
+    }
+}
+
+// Your application uses YOUR interface, not Symfony's
+class CreateUserController implements ControllerInterface 
+{
+    public function __construct(private UserValidatorInterface $validator) {}
+}
+```
+
+This approach gives you:
+- **Library Independence**: Swap Symfony Validator for another library by implementing your interface
+- **Domain Clarity**: Your interfaces reflect business needs, not library abstractions  
+- **Future-Proof Evolution**: Library updates only require adapter changes, not application rewrites
+- **Focused Testing**: Mock exactly what your application needs, not complex library interfaces
+
+You get battle-tested components (Symfony Security, Doctrine ORM, Laminas Session) with complete architectural control.
+
 ## Extending the Application
 
 ### Adding Routes
