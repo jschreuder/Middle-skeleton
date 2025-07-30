@@ -33,6 +33,15 @@ This skeleton demonstrates Middle's core philosophy in practice:
 * **Console Integration**: Command registration and service injection
 * **Testing Strategy**: Both unit and feature test examples
 
+### Component Selection Philosophy
+This skeleton deliberately combines components from different framework ecosystems. These choices are both based on their individual quality and demonstrate Middle's core principle: **choose the best tool for each job, regardless of origin**.
+
+Notice the different integration patterns:
+- **Interface adaptation**: Symfony Router wrapped behind `RouterInterface`, routing is core application behavior that might need different implementations (some being basic, others very complex). Monolog is used through the standard PSR-3 `LoggerInterface`, this serves same purpose as custom interfaces by abstracting away the concrete implementation.
+- **Development tools**: Phinx for migrations and Pest for testing remain unwrapped—they're not part of your application runtime, they're development utilities that don't need abstraction.
+
+This isn't about mixing components randomly, it's about making thoughtful choices based on technical merit. Anything used in your application's domain code is ideally abstracted away for readability and replaceability, but with development tools this would be nearly impossible and not worth your time. When you have clear interfaces where needed and direct usage where appropriate, the source ecosystem becomes irrelevant. Your application remains coherent because you've defined the boundaries, not because everything comes from one vendor.
+
 ## Installation
 
 ```bash
