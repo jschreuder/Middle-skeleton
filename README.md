@@ -137,6 +137,7 @@ class CreateUserController implements ControllerInterface
 
 This approach gives you:
 - **Library Independence**: Swap Symfony Validator for another library by implementing your interface
+- **Minimal Framework Risk**: Middle's core is tiny and stable - security updates happen in your chosen components, not the framework
 - **Domain Clarity**: Your interfaces reflect business needs, not library abstractions  
 - **Future-Proof Evolution**: Library updates only require adapter changes, not application rewrites
 - **Focused Testing**: Mock exactly what your application needs, not complex library interfaces
@@ -178,6 +179,10 @@ return new ApplicationStack(
 ### Scaling Your Application
 
 As your application grows, Middle's explicit design supports modular organization at multiple levels:
+
+**For Beginners**: Start with concrete implementations, extract interfaces when patterns emerge  
+**For Teams**: Build organizational base classes with your conventions baked in  
+**For Scale**: Split into modules using service provider traits
 
 **Within a Single Application:**
 You can organize services using traits to keep the ServiceContainer manageable:
